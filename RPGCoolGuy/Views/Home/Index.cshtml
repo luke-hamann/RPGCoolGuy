@@ -1,0 +1,16 @@
+﻿@model List<Character>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table>
+    @foreach(Character c in Model)
+    {
+        <tr>
+            <td>@c.Name</td>
+            <td>@c.Attack</td>
+            <td>@c.Defense</td>
+            <td>@c.HP</td>
+        </tr>
+    }
+</table>

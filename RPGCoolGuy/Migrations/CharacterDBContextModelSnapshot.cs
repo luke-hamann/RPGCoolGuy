@@ -10,7 +10,7 @@ using RPGCoolGuy.Models;
 
 namespace RPGCoolGuy.Migrations
 {
-    [DbContext(typeof(CharacterDBContext))]
+    [DbContext(typeof(CharacterContext))]
     partial class CharacterDBContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

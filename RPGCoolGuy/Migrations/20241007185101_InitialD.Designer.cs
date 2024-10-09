@@ -11,7 +11,7 @@ using RPGCoolGuy.Models;
 
 namespace RPGCoolGuy.Migrations
 {
-    [DbContext(typeof(CharacterDBContext))]
+    [DbContext(typeof(CharacterContext))]
     [Migration("20241007185101_InitialD")]
     partial class InitialD
     {

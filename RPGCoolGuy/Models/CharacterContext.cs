@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 namespace RPGCoolGuy.Models
 {
-    public class CharacterDBContext : DbContext
+    public class CharacterContext : DbContext
     {
-        public CharacterDBContext
-            (DbContextOptions<CharacterDBContext> options) : base(options)
+        public CharacterContext
+            (DbContextOptions<CharacterContext> options) : base(options)
         { }
 
         public DbSet<Character> Characters { get; set; }
@@ -20,7 +20,7 @@ namespace RPGCoolGuy.Models
                        Name = "Dave",
                        Attack = 20,
                        Defense = 20,
-                       HP = 5
+                       HP = 20
                    },
                    new Character
                    {
@@ -28,7 +28,7 @@ namespace RPGCoolGuy.Models
                        Name = "Tony",
                        Attack = 30,
                        Defense = 30,
-                       HP = 1
+                       HP = 30
                    },
                    new Character
                    {

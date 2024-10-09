@@ -11,6 +11,16 @@
             <td>@c.Attack</td>
             <td>@c.Defense</td>
             <td>@c.HP</td>
+            <td>
+                <a asp-route-id="@c.Id" asp-action="Edit">Edit</a>
+            </td>
+            <td>
+                <a asp-route-id="@c.Id" asp-action="Delete">Delete</a>
+            </td>
         </tr>
     }
 </table>
+
+<br />
+<a asp-action="Add">Click here to add a character</a>
+<a asp-action="Fight">Click here to fight</a>

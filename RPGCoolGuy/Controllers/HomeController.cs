@@ -48,7 +48,6 @@ namespace RPGCoolGuy.Controllers
                     ctx.Characters.Update(c);
                 }
                 ctx.SaveChanges();
-                var chars = ctx.Characters.ToList();
                 return RedirectToAction("Index");
             }
             else
@@ -74,27 +73,32 @@ namespace RPGCoolGuy.Controllers
         [HttpGet]
         public IActionResult Fight()
         {
-            ViewBag.Characters = ctx.Characters.ToList();
+            ViewBag.Characters = ctx.Characters.OrderBy(c => c.Name).ToList();
             return View();
         }
 
         [HttpPost]
         public IActionResult Fight(Fight fight)
         {
-            Character c1 = ctx.Characters.Find(fight.Character1);
-            Character c2 = ctx.Characters.Find(fight.Character2);
+            Character? c1 = ctx.Characters.Find(fight.Character1);
+            Character? c2 = ctx.Characters.Find(fight.Character2);
+
+            if (c1 == null || c2 == null)
+            {
+                return RedirectToAction("Index");
+            }
 
             if (c1.Attack > c2.Attack)
             {
-                ViewBag.result = c1.Name + " won.";
+                ViewBag.Result = c1.Name + " won.";
             }
             else if (c2.Attack > c1.Attack)
             {
-                ViewBag.result = c2.Name + " won.";
+                ViewBag.Result = c2.Name + " won.";
             }
             else
             {
-                ViewBag.result = "Tie.";
+                ViewBag.Result = "Tie.";
             }
 
             return View("Result");

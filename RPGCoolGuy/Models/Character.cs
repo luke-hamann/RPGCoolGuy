@@ -22,7 +22,7 @@ namespace RPGCoolGuy.Models
         [Range(0, 1000000000, ErrorMessage = "Please enter an HP value between 0 and 1 trillion.")]
         public int? HP { get; set; }
 
-        public string? Slug
+        public string Slug
         {
             get
             {

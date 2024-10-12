@@ -1,6 +1,12 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Result";
 }
 <p>The fighter who won is: @ViewBag.result</p>
+<p>
+    <a asp-action="Fight" class="btn btn-primary">
+        Fight Again
+    </a>
+    <a asp-action="Index" class="btn btn-secondary">
+        Go Home
+    </a>
+</p>

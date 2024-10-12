@@ -2,13 +2,34 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @model Character;
-@{
-}
 
-<form asp-action="Edit" method="post">
-    <label asp-for="Name">Name: </label><input type="text" asp-for="Name"/>
-    <label asp-for="Attack">Attack: </label><input type="number" asp-for="Attack"/>
-    <label asp-for="Defense">Defense: </label><input type="number" asp-for="Defense"/>
-    <label asp-for="HP">HP: </label><input type="number" asp-for="HP" />
-    <button type="submit">Submit</button>
+<form asp-action="Edit" method="post" class="form-horizontal">
+    <div class="row">
+        <label asp-for="Name" class="form-label col-sm-3">
+            Name
+        </label>
+        <input type="text" asp-for="Name" class="form-control col" />
+    </div>
+    <div class="row mt-3">
+        <label asp-for="Attack" class="form-label col-sm-3">
+            Attack
+        </label>
+        <input type="number" asp-for="Attack" class="form-control col" />
+    </div>
+    <div class="row mt-3">
+        <label asp-for="Defense" class="form-label col-sm-3">
+            Defense
+        </label>
+        <input type="number" asp-for="Defense" class="form-control col"/>
+    </div>
+    <div class="row mt-3">
+        <label asp-for="HP" class="form-label col-sm-3">
+            HP
+        </label>
+        <input type="number" asp-for="HP" class="form-control col" />
+    </div>
+    <div class="mt-5">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
 </form>

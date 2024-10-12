@@ -1,26 +1,50 @@
 ﻿@model List<Character>
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "RPGCoolGuy";
 }
 
-<table>
-    @foreach(Character c in Model)
-    {
-        <tr>
-            <td>@c.Name</td>
-            <td>@c.Attack</td>
-            <td>@c.Defense</td>
-            <td>@c.HP</td>
-            <td>
-                <a asp-route-id="@c.Id" asp-action="Edit">Edit</a>
-            </td>
-            <td>
-                <a asp-route-id="@c.Id" asp-action="Delete">Delete</a>
-            </td>
-        </tr>
-    }
-</table>
+<div class="mt-5 mb-5">
+    <a asp-action="Add" class="btn btn-info">
+        Add Character
+    </a>
+    <a asp-action="Fight" class="btn btn-danger">
+        Fight
+    </a>
+</div>
 
-<br />
-<a asp-action="Add">Click here to add a character</a>
-<a asp-action="Fight">Click here to fight</a>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Attack</th>
+                <th>Defense</th>
+                <th>HP</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Character c in Model)
+            {
+                <tr>
+                    <td>@c.Name</td>
+                    <td>@c.Attack</td>
+                    <td>@c.Defense</td>
+                    <td>@c.HP</td>
+                    <td>
+                        <a asp-route-id="@c.Id" asp-action="Edit" class="btn btn-warning">
+                            Edit
+                        </a>
+                    </td>
+                    <td>
+                        <form asp-action="Delete" asp-route-id="@c.Id">
+                            <button type="submit" class="btn btn-danger">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

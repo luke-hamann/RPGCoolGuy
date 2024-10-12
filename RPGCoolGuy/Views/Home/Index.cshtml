@@ -4,11 +4,11 @@
 }
 
 <div class="mt-5 mb-5">
-    <a asp-action="Add" class="btn btn-info">
-        Add Character
+    <a asp-action="Add" class="btn btn-info mt-1">
+        👨 Add Character
     </a>
-    <a asp-action="Fight" class="btn btn-danger">
-        Fight
+    <a asp-action="Fight" class="btn btn-danger mt-1">
+        ⚔️ Fight
     </a>
 </div>
 
@@ -32,14 +32,14 @@
                     <td>@c.Defense</td>
                     <td>@c.HP</td>
                     <td>
-                        <a asp-route-id="@c.Id" asp-action="Edit" class="btn btn-warning">
-                            Edit
+                        <a asp-action="Edit" asp-route-id="@c.Id" asp-route-slug="@c.Slug" class="btn btn-warning">
+                            ✏ Edit
                         </a>
                     </td>
                     <td>
                         <form asp-action="Delete" asp-route-id="@c.Id">
                             <button type="submit" class="btn btn-danger">
-                                Delete
+                                🗑 Delete
                             </button>
                         </form>
                     </td>

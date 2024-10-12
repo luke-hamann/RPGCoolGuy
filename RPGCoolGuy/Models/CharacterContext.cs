@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+
 namespace RPGCoolGuy.Models
 {
     public class CharacterContext : DbContext

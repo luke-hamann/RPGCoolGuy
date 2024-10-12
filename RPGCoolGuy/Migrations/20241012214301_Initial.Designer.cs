@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RPGCoolGuy.Models;
 
@@ -11,9 +12,11 @@ using RPGCoolGuy.Models;
 namespace RPGCoolGuy.Migrations
 {
     [DbContext(typeof(CharacterContext))]
-    partial class CharacterDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241012214301_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,15 +34,19 @@ namespace RPGCoolGuy.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int?>("Attack")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int?>("Defense")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int?>("HP")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -52,7 +59,7 @@ namespace RPGCoolGuy.Migrations
                             Id = 1,
                             Attack = 20,
                             Defense = 20,
-                            HP = 5,
+                            HP = 20,
                             Name = "Dave"
                         },
                         new
@@ -60,7 +67,7 @@ namespace RPGCoolGuy.Migrations
                             Id = 2,
                             Attack = 30,
                             Defense = 30,
-                            HP = 1,
+                            HP = 30,
                             Name = "Tony"
                         },
                         new

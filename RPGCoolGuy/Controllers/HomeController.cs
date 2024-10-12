@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using RPGCoolGuy.Models;
-using System.Diagnostics;
 
 namespace RPGCoolGuy.Controllers
 {
@@ -50,7 +49,7 @@ namespace RPGCoolGuy.Controllers
                 }
                 ctx.SaveChanges();
                 var chars = ctx.Characters.ToList();
-                return View("Index", chars);
+                return RedirectToAction("Index");
             }
             else
             {
@@ -84,17 +83,18 @@ namespace RPGCoolGuy.Controllers
         {
             Character c1 = ctx.Characters.Find(fight.Character1);
             Character c2 = ctx.Characters.Find(fight.Character2);
+
             if (c1.Attack > c2.Attack)
             {
-                ViewBag.result = c1.Name;
+                ViewBag.result = c1.Name + " won.";
             }
             else if (c2.Attack > c1.Attack)
             {
-                ViewBag.result = c2.Name;
+                ViewBag.result = c2.Name + " won.";
             }
             else
             {
-                ViewBag.result = "tie";
+                ViewBag.result = "Tie.";
             }
 
             return View("Result");
